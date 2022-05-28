@@ -116,6 +116,7 @@ main(int argc, char *argv[]) {
 	else {
 		for(i = 1; i < argc; ++i) {
 			tm = time_to_sec(argv[i]);
+                        printf("%f\n",tm);
 			if(tm < 0)
 				die("%s: wrong time\n", argv[i]);
 			endtm += tm;
@@ -124,7 +125,7 @@ main(int argc, char *argv[]) {
 		}
 	}
 
-	for(tm = 0; tm < endtm; ) {
+	for(tm = 0; tm < endtm || tm == 0; ) {
 		time_print(tm); /* ascending */
 		printf(" | ");
 		time_print(endtm - tm); /* descending */
